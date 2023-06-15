@@ -1,0 +1,87 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background: #1C38A1;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+}
+
+.FMCSA {
+    font-weight: 700;
+    color: white;
+}
+
+.REGISTRATION {
+    font-weight: 700;
+    color: white;
+    
+    font-size: xx-small;
+    
+}
+
+.logo {
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    padding: 0 0 0 25px;
+    align-items: center;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.logo span {
+    font-weight: 500;
+    padding: 0px  19px;
+    font-size: 18px;
+}
+
+a {
+    color: white !important;
+    position: relative;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 5px 10px;
+}
+
+.fontawesome {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.nav-item {
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+}
+
+a:hover {
+    color: white;
+    background: #0b1640;
+}
+
+nav:hover {
+    width: 220px;
+    transition: all 1s ease;
+}

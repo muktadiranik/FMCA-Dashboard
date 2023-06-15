@@ -1,0 +1,3164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/68152c3809.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- library daisyui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- CDN -->
+    <script src="{% static 'tailwind.js' %}"></script>
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="{% static 'styles/nav.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/tabs.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/progress-bar.css' %}" />
+    <title>Dashboard</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li style="margin-top: 20px; text-align: center; margin-bottom: 20px">
+            <span class="FMCSA">FMCSA</span>
+            <span class="REGISTRATION">REGISTRATION</span>
+          </li>
+
+          <li>
+            <span
+              class="logo cursor-pointer border border-x-[#1C38A1;] py-2"
+              href=""
+            >
+              <hr />
+              <img
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                alt=""
+              />
+              <span style="color: white">Badhon</span>
+              <hr />
+            </span>
+          </li>
+
+          <li>
+            <a href="">
+              <i class="fa-solid fa-gauge-high fontawesome"></i>
+              <span class="nav-item font-semibold">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa-regular fa-building fontawesome"></i>
+              <span class="nav-item font-semibold">Business </span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa-solid fa-user-group fontawesome"></i>
+              <span class="nav-item font-semibold">User Information</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- ==================
+        First Section  
+        ================== -->
+      <section class="ml-[120px] mt-10">
+        <!-- flex div -->
+        <div class="lg:flex">
+          <div class="border text-center lg:w-4/12 pr-5">
+            <div class="py-7">
+              <h1 class="text-[#081B48;] font-bold text-lg">
+                Complience Score
+              </h1>
+            </div>
+            <hr />
+            <!-- g-green-400  text-primary-content border border-red-500 -->
+
+            <div class="mx-auto mt-10">
+              <div
+                class="radial-progress border-red-500 progress-bar-green"
+                style="
+                  --value: 100;
+                  --size: 199px;
+                  --thickness: 40px;
+                  color: green;
+                "
+              >
+                <div class="progress-bar-red">
+                  <div class="mt-12 font-bold text-2xl text-[#081B48;]">
+                    100%
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10">
+              <h4 class="text-[#081B48;] font-medium">
+                You have
+                <span class="font-bold text-[#081B48;]">4 person(s)</span> that
+                need attention.
+              </h4>
+            </div>
+          </div>
+
+          <div class="lg:w-8/12 lg:pl-5 md:pt-10 lg:pt-0">
+            <div class="border">
+              <!-- button and title  -->
+              <div class="px-10 py-5 md:flex justify-between">
+                <div>
+                  <h1 class="text-[#081B48;] font-bold text-lg">
+                    Alert and Notification
+                  </h1>
+                </div>
+                <div class="space-x-4">
+                  <button
+                    class="border px-5 py-2 rounded bg-[#1C38A1;] text-white font-medium text-base"
+                  >
+                    <i class="fa-solid fa-arrows-rotate pr-2"></i> Refresh
+                  </button>
+                  <button
+                    class="border px-5 py-2 rounded bg-[#26A042;] text-white font-medium text-base"
+                  >
+                    <i class="fa-solid fa-file-arrow-down pr-2"></i> Export
+                  </button>
+                  <button
+                    class="border px-5 py-2 rounded bg-[#E8BA0B;] text-white font-medium text-base"
+                  >
+                    <i class="fa-solid fa-circle-question pr-2"></i> Help
+                  </button>
+                </div>
+              </div>
+              <hr />
+
+              <!-- option button  -->
+              <div class="md:flex justify-between py-4 px-6">
+                <div>
+                  <div>
+                    <label
+                      for="slect-option-1"
+                      class="border px-3 py-2 bg-[#1C38A1;] rounded text-white font-normal text-base"
+                      for=""
+                    >
+                      <i class="fa-solid fa-filter"></i> Filter by</label
+                    >
+                    <select
+                      class="border rounded px-3 h-9 xl:w-96 lg:w-full"
+                      id="slect-option-1"
+                    >
+                      <option value="volvo">Valorant</option>
+                      <option value="saab">Apex</option>
+                      <option value="vw">Cod MW</option>
+                      <option value="audi" selected>Show All</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <label
+                      for="slect-option"
+                      class="border px-3 py-2 bg-[#1C38A1;] rounded text-white font-normal text-base"
+                      for=""
+                      ><i
+                        class="fa-solid fa-arrow-up-short-wide fa-flip-horizontal"
+                      ></i>
+                      Sort by</label
+                    >
+                    <select
+                      class="border px-3 h-9 rounded xl:w-96 lg:w-full"
+                      id="slect-option"
+                    >
+                      <option value="volvo">Valorant</option>
+                      <option value="saab">Apex</option>
+                      <option value="vw">Cod MW</option>
+                      <option value="audi" selected>Creation Date</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <!-- =======  option button div end here  -->
+
+              <!-- tab content start form here  ============-->
+              <div>
+                <div class="mt-4">
+                  <ul
+                    class="flex flex-wrap pl-6"
+                    id="myTab"
+                    data-tabs-toggle="#myTabContent"
+                    role="tablist"
+                  >
+                    <li class="mr-2" role="presentation">
+                      <button
+                        class="text-black bg-[#1C38A1;] rounded py-4 px-8 text-sm font-medium text-center"
+                        id="profile-tab"
+                        data-tabs-target="#profile"
+                        type="button"
+                        role="tab"
+                        aria-controls="profile"
+                        aria-selected="false"
+                      >
+                        Active (100)
+                      </button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                      <button
+                        class="bg-[#DEDEDE;] text-[#DEDEDE;] py-4 px-8 rounded text-sm font-medium text-center"
+                        id="dashboard-tab"
+                        data-tabs-target="#dashboard"
+                        type="button"
+                        role="tab"
+                        aria-controls="dashboard"
+                        aria-selected="true"
+                      >
+                        Dismissed (6)
+                      </button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                      <button
+                        class="text-black bg-[#DEDEDE;] rounded py-4 px-8 text-sm font-medium text-center"
+                        id="settings-tab"
+                        data-tabs-target="#settings"
+                        type="button"
+                        role="tab"
+                        aria-controls="settings"
+                        aria-selected="false"
+                      >
+                        Completed (112)
+                      </button>
+                    </li>
+                  </ul>
+                  <hr />
+                </div>
+                <!-- =========== tab buttons end here  -->
+
+                <!-- tab body content "Active (100)" start from here ==== -->
+
+                <div id="myTabContent">
+                  <div
+                    class="p-4 hidden"
+                    id="profile"
+                    role="tabpanel"
+                    aria-labelledby="profile-tab"
+                  >
+                    <div
+                      class=""
+                      id="profile"
+                      role="tabpanel"
+                      aria-labelledby="profile-tab"
+                    >
+                      <div>
+                        <div>
+                          <details class="group">
+                            <summary
+                              class="flex justify-between items-center font-medium cursor-pointer list-none"
+                            >
+                              <span
+                                class="text-[#FF4545;] pl-2 py-4 font-bold text-xl"
+                              >
+                                Alert (3)</span
+                              >
+                              <span>
+                                <span
+                                  class="transition group-open:rotate-180 text-[#FF4545;]"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="24"
+                                    shape-rendering="geometricPrecision"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                  >
+                                    <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                                </span>
+                              </span>
+                            </summary>
+                            <div>
+                              <!-- ======= Accordion drop down code start from here  -->
+                              <!-- first  -->
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/red-alarm.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Albert Caron
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Medical Certificate</span
+                                      >
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                        >- No Certificate on File <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                        ></span
+                                      ></span>
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img src="images/email.png" alt="" />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- second -->
+
+                              <div class="w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img
+                                        src="images/yellow-alram.png"
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Albert Caron
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Medical Certificate</span
+                                      >
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                        >- No Certificate on File <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                          >review needed</span
+                                        ></span
+                                      >
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img src="images/email.png" alt="" />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- third -->
+
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/red-alarm.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Albert Caron
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Medical Certificate</span
+                                      >
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                        >- No Certificate on File <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                        ></span
+                                      ></span>
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img src="images/email.png" alt="" />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </details>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- ============================================================================= -->
+                    <!-- have to changed, -->
+                    <hr />
+                    <div
+                      class=""
+                      id="profile"
+                      role="tabpanel"
+                      aria-labelledby="profile-tab"
+                    >
+                      <div>
+                        <div>
+                          <details class="group">
+                            <summary
+                              class="flex justify-between items-center font-medium cursor-pointer list-none bg-"
+                            >
+                              <span
+                                class="text-[#1262B7;] pl-2 py-4 font-bold text-xl"
+                              >
+                                Notification (3)</span
+                              >
+                              <span>
+                                <span
+                                  class="transition group-open:rotate-180 text-blue-700"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="24"
+                                    shape-rendering="geometricPrecision"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                  >
+                                    <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                                </span>
+                              </span>
+                            </summary>
+                            <div>
+                              <!-- ======= Accordion drop down code start from here  -->
+                              <!-- first  -->
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/blue-time.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Michael Lee
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Self Services
+                                      </span>
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                      >
+                                        - Document Request Approval <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                          >Review for Completed Document
+                                        </span></span
+                                      >
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="defaultModal"
+                                        data-modal-toggle="defaultModal"
+                                        type="button"
+                                      >
+                                        <img
+                                          src="images/test-file.png"
+                                          alt=""
+                                        />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- second -->
+
+                              <div class="w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/Check-mark.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Arnold Hab
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Self Services
+                                      </span>
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                      >
+                                        - Medical Certificate <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                          >Clear</span
+                                        ></span
+                                      >
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img
+                                          class="invisible"
+                                          src="images/email.png"
+                                          alt=""
+                                        />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- third -->
+
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/bell-cion.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        System Dashboard
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                      >
+                                        Your Account Edit Password
+                                      </span>
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                      >
+                                        <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                        ></span
+                                      ></span>
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img
+                                          class="invisible"
+                                          src="images/email.png"
+                                          alt=""
+                                        />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </details>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="p-4 hidden"
+                    id="dashboard"
+                    role="tabpanel"
+                    aria-labelledby="dashboard-tab"
+                  >
+                    <div
+                      class=""
+                      id="profile"
+                      role="tabpanel"
+                      aria-labelledby="profile-tab"
+                    >
+                      <div>
+                        <div>
+                          <details class="group">
+                            <summary
+                              class="flex justify-between items-center font-medium cursor-pointer list-none"
+                            >
+                              <span
+                                class="text-[#FF4545;] pl-2 py-4 font-bold text-xl"
+                              >
+                                Alert (3)</span
+                              >
+                              <span>
+                                <span
+                                  class="transition group-open:rotate-180 text-[#FF4545;]"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="24"
+                                    shape-rendering="geometricPrecision"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                  >
+                                    <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                                </span>
+                              </span>
+                            </summary>
+                            <div>
+                              <!-- ======= Accordion drop down code start from here  -->
+                              <!-- first  -->
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/red-alarm.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Albert Caron
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Medical Certificate</span
+                                      >
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                        >- No Certificate on File <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                        ></span
+                                      ></span>
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img src="images/email.png" alt="" />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- second -->
+
+                              <div class="w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img
+                                        src="images/yellow-alram.png"
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Albert Caron
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Medical Certificate</span
+                                      >
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                        >- No Certificate on File <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                          >review needed</span
+                                        ></span
+                                      >
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img src="images/email.png" alt="" />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- third -->
+
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/red-alarm.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Albert Caron
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Medical Certificate</span
+                                      >
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                        >- No Certificate on File <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                        ></span
+                                      ></span>
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img src="images/email.png" alt="" />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </details>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ============================================================================= -->
+
+                    <!-- have to changed, -->
+                    <hr />
+                    <div
+                      class=""
+                      id="profile"
+                      role="tabpanel"
+                      aria-labelledby="profile-tab"
+                    >
+                      <div>
+                        <div>
+                          <details class="group">
+                            <summary
+                              class="flex justify-between items-center font-medium cursor-pointer list-none bg-"
+                            >
+                              <span
+                                class="text-[#1262B7;] pl-2 py-4 font-bold text-xl"
+                              >
+                                Notification (3)</span
+                              >
+                              <span>
+                                <span
+                                  class="transition group-open:rotate-180 text-blue-700"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="24"
+                                    shape-rendering="geometricPrecision"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                  >
+                                    <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                                </span>
+                              </span>
+                            </summary>
+                            <div>
+                              <!-- ======= Accordion drop down code start from here  -->
+                              <!-- first  -->
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/blue-time.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Michael Lee
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Self Services
+                                      </span>
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                      >
+                                        - Document Request Approval <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                          >Review for Completed Document
+                                        </span></span
+                                      >
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="defaultModal"
+                                        data-modal-toggle="defaultModal"
+                                        type="button"
+                                      >
+                                        <img
+                                          src="images/test-file.png"
+                                          alt=""
+                                        />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- second -->
+
+                              <div class="w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/Check-mark.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Arnold Hab
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Self Services
+                                      </span>
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                      >
+                                        - Medical Certificate <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                          >Clear</span
+                                        ></span
+                                      >
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img
+                                          class="invisible"
+                                          src="images/email.png"
+                                          alt=""
+                                        />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- third -->
+
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/bell-cion.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        System Dashboard
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                      >
+                                        Your Account Edit Password
+                                      </span>
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                      >
+                                        <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                        ></span
+                                      ></span>
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img
+                                          class="invisible"
+                                          src="images/email.png"
+                                          alt=""
+                                        />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </details>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="p-4 hidden"
+                    id="settings"
+                    role="tabpanel"
+                    aria-labelledby="settings-tab"
+                  >
+                    <div
+                      class=""
+                      id="profile"
+                      role="tabpanel"
+                      aria-labelledby="profile-tab"
+                    >
+                      <div>
+                        <div>
+                          <details class="group">
+                            <summary
+                              class="flex justify-between items-center font-medium cursor-pointer list-none"
+                            >
+                              <span
+                                class="text-[#FF4545;] pl-2 py-4 font-bold text-xl"
+                              >
+                                Alert (3)</span
+                              >
+                              <span>
+                                <span
+                                  class="transition group-open:rotate-180 text-[#FF4545;]"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="24"
+                                    shape-rendering="geometricPrecision"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                  >
+                                    <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                                </span>
+                              </span>
+                            </summary>
+                            <div>
+                              <!-- ======= Accordion drop down code start from here  -->
+                              <!-- first  -->
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/red-alarm.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Albert Caron
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Medical Certificate</span
+                                      >
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                        >- No Certificate on File <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                        ></span
+                                      ></span>
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img src="images/email.png" alt="" />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- second -->
+
+                              <div class="w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img
+                                        src="images/yellow-alram.png"
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Albert Caron
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Medical Certificate</span
+                                      >
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                        >- No Certificate on File <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                          >review needed</span
+                                        ></span
+                                      >
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img src="images/email.png" alt="" />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- third -->
+
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/red-alarm.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Albert Caron
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Medical Certificate</span
+                                      >
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                        >- No Certificate on File <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                        ></span
+                                      ></span>
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img src="images/email.png" alt="" />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </details>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ============================================================================= -->
+
+                    <!--may have to changed, -->
+                    <hr />
+                    <div
+                      class=""
+                      id="profile"
+                      role="tabpanel"
+                      aria-labelledby="profile-tab"
+                    >
+                      <div>
+                        <div>
+                          <details class="group">
+                            <summary
+                              class="flex justify-between items-center font-medium cursor-pointer list-none bg-"
+                            >
+                              <span
+                                class="text-[#1262B7;] pl-2 py-4 font-bold text-xl"
+                              >
+                                Notification (3)</span
+                              >
+                              <span>
+                                <span
+                                  class="transition group-open:rotate-180 text-blue-700"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="24"
+                                    shape-rendering="geometricPrecision"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                  >
+                                    <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                                </span>
+                              </span>
+                            </summary>
+                            <div>
+                              <!-- ======= Accordion drop down code start from here  -->
+                              <!-- first  -->
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/blue-time.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Michael Lee
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Self Services
+                                      </span>
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                      >
+                                        - Document Request Approval <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                          >Review for Completed Document
+                                        </span></span
+                                      >
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="defaultModal"
+                                        data-modal-toggle="defaultModal"
+                                        type="button"
+                                      >
+                                        <img
+                                          src="images/test-file.png"
+                                          alt=""
+                                        />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- second -->
+
+                              <div class="w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/Check-mark.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        Arnold Hab
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                        >Self Services
+                                      </span>
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                      >
+                                        - Medical Certificate <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                          >Clear</span
+                                        ></span
+                                      >
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img
+                                          class="invisible"
+                                          src="images/email.png"
+                                          alt=""
+                                        />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- third -->
+
+                              <div class="bg-[#F7F7F7;] w-full">
+                                <div
+                                  class="flex justify-between items-center mx-6"
+                                >
+                                  <div
+                                    class="py-4 flex md:space-x-8 items-center lg:space-x-14"
+                                  >
+                                    <div>
+                                      <img src="images/bell-cion.png" alt="" />
+                                    </div>
+                                    <div>
+                                      <h6
+                                        class="font-medium text-base text-[#081B48;]"
+                                      >
+                                        System Dashboard
+                                      </h6>
+                                    </div>
+                                    <div>
+                                      <span
+                                        class="text-[#081B48;] font-medium text-base"
+                                      >
+                                        Your Account Edit Password
+                                      </span>
+                                      <span
+                                        class="text-[#081B48;] font-normal text-base"
+                                      >
+                                        <br />
+                                        <span
+                                          class="font-medium text-xs text-[#818FB0;]"
+                                        ></span
+                                      ></span>
+                                    </div>
+
+                                    <!--====== modale toggle button ======= -->
+                                    <div>
+                                      <button
+                                        data-modal-target="staticModal"
+                                        data-modal-toggle="staticModal"
+                                        type="button"
+                                      >
+                                        <img
+                                          class="invisible"
+                                          src="images/email.png"
+                                          alt=""
+                                        />
+                                      </button>
+                                    </div>
+                                    <!--====== modale toggle button end ======= -->
+
+                                    <div class="text-[#818FB0;]">
+                                      Reported 01/01/2023
+                                    </div>
+                                  </div>
+                                  <span>
+                                    <button>
+                                      <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </details>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================================================================  -->
+          <!-- Email Modal  -->
+          <!-- Main modal -->
+          <div
+            id="staticModal"
+            data-modal-backdrop="static"
+            tabindex="-1"
+            aria-hidden="true"
+            class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+          >
+            <div class="relative w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded shadow">
+                <!-- Modal header -->
+                <div
+                  class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
+                >
+                  <h3 class="text-xl font-bold text-[#081B48;]">
+                    Medical Certificate for Alber Caron
+                  </h3>
+                  <button
+                    type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-hide="staticModal"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="p-6 space-y-6">
+                  <p
+                    class="text-base leading-relaxed font-semibold text-[#081B48;]"
+                  >
+                    Pending Employee Response: Re-send Link to Albert Caron for
+                    Document Upload (last email sent on 01/01/2023)
+                  </p>
+                  <p
+                    class="font-medium text-base leading-relaxed text-[#081B48;]"
+                  >
+                    Please verifity or change the Email Address for Albert Caron
+                    in the space provided below and press Send to request that
+                    an email be sent.
+                  </p>
+                </div>
+
+                <div class="p-6 space-y-2">
+                  <label class="font-bold text-[#081B48;]" for=""
+                    >Email address</label
+                  >
+                  <input
+                    class="w-full border h-10 rounded"
+                    type="email"
+                    name=""
+                    id=""
+                    placeholder=" Enter Email"
+                  />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="flex items-center justify-end p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600"
+                >
+                  <button
+                    data-modal-hide="staticModa"
+                    class="font-semibold flex items-center border font px-4 py-2 bg-[#1C38A1;] text-white rounded"
+                    type="button"
+                  >
+                    <span class="pr-2"
+                      ><img src="images/email.png" class="w-5" alt=""
+                    /></span>
+                    <span>Send Email</span>
+                  </button>
+                  <button
+                    data-modal-hide="staticModal"
+                    type="button"
+                    class="text-gray-500 bg-gray-100 px-4 py-2 text-lg font-semibold rounded"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Main code end here modal -->
+
+          <!-- =========================================================================================================  -->
+
+          <!-- Document modal  -->
+          <!-- Main modal -->
+          <div
+            id="defaultModal"
+            tabindex="-1"
+            aria-hidden="true"
+            class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+          >
+            <div class="relative w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded shadow">
+                <!-- Modal header -->
+                <div
+                  class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
+                >
+                  <h3 class="text-lg font-bold text-[#081B48;]">
+                    Document Request for Michael Lee
+                  </h3>
+                  <button
+                    type="button"
+                    class="text-gray-400 bg-transparent hover:bg-blue-700 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-hide="defaultModal"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                  </button>
+                </div>
+                <!-- Modal body -->
+                <div class="px-10 py-4">
+                  <div class="bg-[#F5F5F5;] rounded flex justify-center">
+                    <img
+                      class="w-45 py-4"
+                      src="images/doucment-info-img.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="px-10 pb-4">
+                  <div class="border rounded text-center py-2">
+                    <h1 class="font-semibold text-lg text-[#081B48;]">
+                      Commercial Driver’s License
+                    </h1>
+                    <span class="text-[#081B48; font-medium text-sm"
+                      >Exp : 05/08/2024</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="flex items-center justify-end p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600"
+                >
+                  <button
+                    class="bg-[#26A042] flex items-center space-x-2 px-4 py-2 rounded"
+                    data-modal-hide="defaultModal"
+                    type="button"
+                  >
+                    <img src="images/white-check-mark.png" alt="" />
+                    <span class="text-white font-semibold">Accept</span>
+                  </button>
+
+                  <button
+                    class="bg-[#FF4545;] flex items-center space-x-2 px-4 py-2 rounded"
+                    data-modal-hide="defaultModal"
+                    type="button"
+                  >
+                    <img src="images/cross-mark.png" alt="" /><span
+                      class="font-semibold text-white"
+                      >Reject</span
+                    >
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="staticModal1"
+            data-modal-backdrop="static"
+            tabindex="-1"
+            aria-hidden="true"
+            class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+          >
+            <div class="relative w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded shadow">
+                <!-- Modal header -->
+                <div
+                  class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
+                >
+                  <h6 class="font-bold text-lg text-[#1C38A1;]">
+                    Add Employee
+                  </h6>
+                  <button
+                    type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-hide="staticModal1"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="p-6 space-y-6">
+                  <div class="space-y-2">
+                    <label class="font-bold text-[#081B48;]" for=""
+                      >Email address</label
+                    >
+                    <input
+                      class="w-full border h-10 rounded"
+                      type="email"
+                      name=""
+                      id=""
+                      placeholder=" Enter Email"
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label class="font-bold text-[#081B48;]" for=""
+                      >Email address</label
+                    >
+                    <input
+                      class="w-full border h-10 rounded"
+                      type="email"
+                      name=""
+                      id=""
+                      placeholder=" Enter Email"
+                    />
+                  </div>
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="flex items-center justify-end p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600"
+                >
+                  <button
+                    data-modal-hide="staticModal1"
+                    class="font-semibold flex items-center border font px-4 py-2 bg-[#1C38A1;] text-white rounded"
+                    type="button"
+                  >
+                    <span>Send Email</span>
+                  </button>
+                  <button
+                    data-modal-hide="staticModal1"
+                    type="button"
+                    class="text-gray-500 bg-gray-100 px-4 py-2 text-lg font-semibold rounded"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- table data view button modal -->
+
+          <div
+            id="staticModal2"
+            data-modal-backdrop="static"
+            tabindex="-1"
+            aria-hidden="true"
+            class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+          >
+            <div class="relative w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded shadow">
+                <!-- Modal header -->
+                <div
+                  class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
+                >
+                  <!-- <h6 class="font-bold text-lg text-[#1C38A1;]">Add Employee</h6> -->
+                  <button
+                    type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-hide="staticModal2"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="p-6 space-y-6">
+                  <div>
+                    <h1>Email</h1>
+                    <h1>username</h1>
+                  </div>
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="flex items-center justify-end p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600"
+                >
+                  <button
+                    data-modal-hide="staticModal2"
+                    type="button"
+                    class="text-gray-500 bg-gray-100 px-4 py-2 text-lg font-semibold rounded"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- table edit buttoon modal  -->
+          <div
+            id="staticModal3"
+            data-modal-backdrop="static"
+            tabindex="-1"
+            aria-hidden="true"
+            class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+          >
+            <div class="relative w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded shadow">
+                <!-- Modal header -->
+                <div
+                  class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
+                >
+                  <!-- <h6 class="font-bold text-lg text-[#1C38A1;]">Add Employee</h6> -->
+                  <button
+                    type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-hide="staticModal3"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="p-6 space-y-6">
+                  <div>
+                    <h1>Email</h1>
+                    <h1>username</h1>
+                    <h1>username</h1>
+                  </div>
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="flex items-center justify-end p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600"
+                >
+                  <button
+                    data-modal-hide="staticModal3"
+                    type="button"
+                    class="text-gray-500 bg-gray-100 px-4 py-2 text-lg font-semibold rounded"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================
+        Second Section  
+        ================== -->
+      <section class="ml-[120px] mt-10">
+        <div>
+          <div class="border rounded flex justify-between px-6 py-4">
+            <div>
+              <h1 class="font-bold text-lg">All Employee</h1>
+            </div>
+            <div>
+              <button
+                class="bg-[#26A042;] px-6 py-2 rounded font-medium text-white"
+              >
+                <i class="fa-solid fa-file-arrow-down pr-2"></i> Export CSV
+              </button>
+            </div>
+          </div>
+
+          <div class="border">
+            <!-- second select optios and input field-->
+            <div class="md:flex justify-between px-6 py-4">
+              <div>
+                <label
+                  for="slect-option-0"
+                  class="border px-4 py-2 bg-[#1C38A1;] rounded text-white font-normal text-base"
+                  for=""
+                >
+                  <i class="fa-solid fa-magnifying-glass pr-2"></i>
+                  Search</label
+                >
+                <input
+                  class="border rounded px-3 h-9 xl:w-96 lg:w-80"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Search by name"
+                />
+              </div>
+
+              <div>
+                <div>
+                  <button
+                    class="bg-[#1C38A1;] px-4 py-2 rounded text-base font-normal text-white"
+                    data-modal-target="staticModal1"
+                    data-modal-toggle="staticModal1"
+                    type="button"
+                  >
+                    <i class="fa-regular fa-window-restore pr-2"></i>Open
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="slect-option-2"
+                  class="border px-4 py-2 bg-[#1C38A1;] rounded text-white font-normal text-base"
+                  for=""
+                >
+                  <i class="fa-solid fa-filter pr-2"></i> Sort & Filter</label
+                >
+                <select
+                  class="border rounded px-3 h-9 xl:w-96 lg:w-80"
+                  id="slect-option-2"
+                >
+                  <option value="Valorant">Valorant</option>
+                  <option value="Apex">Apex</option>
+                  <option value="Cod_MW">Cod MW</option>
+                  <option value="Sort" selected disabled>
+                    Sort by First Name, Last Name
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Tabs -->
+
+            <div class="mb-4 border-b mx-6">
+              <ul
+                class="flex flex-wrap -mb-px text-sm font-medium text-center"
+                id="myTab"
+                data-tabs-toggle="#myTabContent-1"
+                role="tablist"
+              >
+                <li class="mr-2" role="presentation">
+                  <button
+                    class="text-black bg-[#1C38A1;] rounded py-4 px-8 text-sm font-medium text-center"
+                    id="profile-tab-1"
+                    data-tabs-target="#profile-1"
+                    type="button"
+                    role="tab"
+                    aria-controls="profile"
+                    aria-selected="false"
+                  >
+                    Active (100)
+                  </button>
+                </li>
+                <li class="mr-2" role="presentation">
+                  <button
+                    class="bg-[#DEDEDE;] text-[#DEDEDE;] py-4 px-8 rounded text-sm font-medium text-center"
+                    id="dashboard-tab-1"
+                    data-tabs-target="#dashboard-1"
+                    type="button"
+                    role="tab"
+                    aria-controls="dashboard"
+                    aria-selected="false"
+                  >
+                    Inactive (12)
+                  </button>
+                </li>
+                <li role="presentation">
+                  <button
+                    class="bg-[#DEDEDE;] text-[#DEDEDE;] py-4 px-8 rounded text-sm font-medium text-center"
+                    id="contacts-tab-1"
+                    data-tabs-target="#contacts"
+                    type="button"
+                    role="tab"
+                    aria-controls="contacts"
+                    aria-selected="false"
+                  >
+                    All (112)
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div id="myTabContent-1">
+              <div
+                class="hidden"
+                id="profile-1"
+                role="tabpanel"
+                aria-labelledby="profile-tab-1"
+              >
+                <div class="overflow-x-auto px-6">
+                  <table class="w-full table-auto">
+                    <thead>
+                      <tr class="border text-left">
+                        <th class="px-4 border py-2">Name</th>
+                        <th class="px-4 border py-2">Status</th>
+                        <th class="px-4 border py-2">ID</th>
+                        <th class="px-4 border py-2">Company</th>
+                        <th class="px-4 border py-2">Phone Number</th>
+                        <th class="px-4 border py-2">Enrolled Program</th>
+                        <th class="px-4 border py-2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="border px-4 py-2 font-medium">
+                          Leonardo Desantos
+                        </td>
+                        <td class="border px-4 py-2">
+                          <label
+                            class="relative inline-flex items-center mr-5 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              value=""
+                              class="sr-only peer"
+                              checked
+                            />
+                            <div
+                              class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"
+                            ></div>
+                          </label>
+                          <h6 class="text-sm font-medium">Active</h6>
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          125317621982
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          Tailor Logistic
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          +1 1234 12340
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox1" class="ml-2 text-sm"
+                              >MVR monitoring</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo2"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo2" class="ml-2 text-sm"
+                              >DOT Drug & Alcohol</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo3"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo3" class="ml-2 text-sm"
+                              >Driver File Maintenance</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox4"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox4" class="ml-2 text-sm"
+                              >MVR Monitoring</label
+                            >
+                          </div>
+                        </td>
+                        <td class="border px-4 py-2 font-medium space-x-2">
+                          <button
+                            class="text-[#1262B7]"
+                            data-modal-target="staticModal2"
+                            data-modal-toggle="staticModal2"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+
+                          <button
+                            data-modal-target="staticModal3"
+                            data-modal-toggle="staticModal3"
+                            type="button"
+                          >
+                            <i
+                              class="fa-regular fa-pen-to-square text-green-500"
+                            ></i>
+                          </button>
+
+                          <button>
+                            <i class="fa-solid fa-trash-can text-red-500"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="border px-4 py-2 font-medium">
+                          Leonardo Desantos
+                        </td>
+                        <td class="border px-4 py-2">
+                          <label
+                            class="relative inline-flex items-center mr-5 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              value=""
+                              class="sr-only peer"
+                              checked
+                            />
+                            <div
+                              class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"
+                            ></div>
+                          </label>
+                          <h6 class="text-sm font-medium">inactive</h6>
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          125317621982
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          Tailor Logistic
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          +1 1234 12340
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox1" class="ml-2 text-sm"
+                              >MVR monitoring</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo2"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo2" class="ml-2 text-sm"
+                              >DOT Drug & Alcohol</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo3"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo3" class="ml-2 text-sm"
+                              >Driver File Maintenance</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox4"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox4" class="ml-2 text-sm"
+                              >MVR Monitoring</label
+                            >
+                          </div>
+                        </td>
+                        <td class="border px-4 py-2 font-medium space-x-2">
+                          <button
+                            class="text-[#1262B7]"
+                            data-modal-target="staticModal2"
+                            data-modal-toggle="staticModal2"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+
+                          <button
+                            data-modal-target="staticModal3"
+                            data-modal-toggle="staticModal3"
+                            type="button"
+                          >
+                            <i
+                              class="fa-regular fa-pen-to-square text-green-500"
+                            ></i>
+                          </button>
+
+                          <button>
+                            <i class="fa-solid fa-trash-can text-red-500"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="border px-4 py-2 font-medium">
+                          Leonardo Desantos
+                        </td>
+                        <td class="border px-4 py-2">
+                          <label
+                            class="relative inline-flex items-center mr-5 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              value=""
+                              class="sr-only peer"
+                              checked
+                            />
+                            <div
+                              class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"
+                            ></div>
+                          </label>
+                          <h6 class="text-sm font-medium">Active</h6>
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          125317621982
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          Tailor Logistic
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          +1 1234 12340
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox1" class="ml-2 text-sm"
+                              >MVR monitoring</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo2"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo2" class="ml-2 text-sm"
+                              >DOT Drug & Alcohol</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo3"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo3" class="ml-2 text-sm"
+                              >Driver File Maintenance</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox4"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox4" class="ml-2 text-sm"
+                              >MVR Monitoring</label
+                            >
+                          </div>
+                        </td>
+                        <td class="border px-4 py-2 font-medium space-x-2">
+                          <button
+                            class="text-[#1262B7]"
+                            data-modal-target="staticModal2"
+                            data-modal-toggle="staticModal2"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+
+                          <button
+                            data-modal-target="staticModal3"
+                            data-modal-toggle="staticModal3"
+                            type="button"
+                          >
+                            <i
+                              class="fa-regular fa-pen-to-square text-green-500"
+                            ></i>
+                          </button>
+
+                          <button>
+                            <i class="fa-solid fa-trash-can text-red-500"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="flex justify-end">
+                  <div class="items-center px-6">
+                    <span class="text-sm pr-4 text-[#081B48;] font-medium">
+                      <span>1-150</span>/<span>200</span>
+                    </span>
+                    <div class="inline-flex mt-2 xs:mt-0">
+                      <button
+                        class="px-2 py-1 bg-[#F4F4F4;] border rounded text-[#081B48;]"
+                      >
+                        <i class="fa-solid fa-chevron-left"></i>
+                      </button>
+                      <button
+                        class="px-2 py-1 bg-[#F4F4F4;] border rounded text-[#081B48;]"
+                      >
+                        <i class="fa-solid fa-chevron-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="hidden"
+                id="dashboard-1"
+                role="tabpanel"
+                aria-labelledby="dashboard-tab-1"
+              >
+                <div class="overflow-x-auto px-6">
+                  <table class="w-full table-auto">
+                    <thead>
+                      <tr class="border text-left">
+                        <th class="px-4 border py-2">Name</th>
+                        <th class="px-4 border py-2">Status</th>
+                        <th class="px-4 border py-2">ID</th>
+                        <th class="px-4 border py-2">Company</th>
+                        <th class="px-4 border py-2">Phone Number</th>
+                        <th class="px-4 border py-2">Enrolled Program</th>
+                        <th class="px-4 border py-2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="border px-4 py-2 font-medium">
+                          Leonardo Desantos
+                        </td>
+                        <td class="border px-4 py-2">
+                          <label
+                            class="relative inline-flex items-center mr-5 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              value=""
+                              class="sr-only peer"
+                              checked
+                            />
+                            <div
+                              class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"
+                            ></div>
+                          </label>
+                          <h6 class="text-sm font-medium">Active</h6>
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          125317621982
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          Tailor Logistic
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          +1 1234 12340
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox1" class="ml-2 text-sm"
+                              >MVR monitoring</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo2"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo2" class="ml-2 text-sm"
+                              >DOT Drug & Alcohol</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo3"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo3" class="ml-2 text-sm"
+                              >Driver File Maintenance</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox4"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox4" class="ml-2 text-sm"
+                              >MVR Monitoring</label
+                            >
+                          </div>
+                        </td>
+                        <td class="border px-4 py-2 font-medium space-x-2">
+                          <button
+                            class="text-[#1262B7]"
+                            data-modal-target="staticModal2"
+                            data-modal-toggle="staticModal2"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+
+                          <button
+                            data-modal-target="staticModal3"
+                            data-modal-toggle="staticModal3"
+                            type="button"
+                          >
+                            <i
+                              class="fa-regular fa-pen-to-square text-green-500"
+                            ></i>
+                          </button>
+
+                          <button>
+                            <i class="fa-solid fa-trash-can text-red-500"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="border px-4 py-2 font-medium">
+                          Leonardo Desantos
+                        </td>
+                        <td class="border px-4 py-2">
+                          <label
+                            class="relative inline-flex items-center mr-5 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              value=""
+                              class="sr-only peer"
+                              checked
+                            />
+                            <div
+                              class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"
+                            ></div>
+                          </label>
+                          <h6 class="text-sm font-medium">inactive</h6>
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          125317621982
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          Tailor Logistic
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          +1 1234 12340
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox1" class="ml-2 text-sm"
+                              >MVR monitoring</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo2"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo2" class="ml-2 text-sm"
+                              >DOT Drug & Alcohol</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo3"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo3" class="ml-2 text-sm"
+                              >Driver File Maintenance</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox4"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox4" class="ml-2 text-sm"
+                              >MVR Monitoring</label
+                            >
+                          </div>
+                        </td>
+                        <td class="border px-4 py-2 font-medium space-x-2">
+                          <button
+                            class="text-[#1262B7]"
+                            data-modal-target="staticModal2"
+                            data-modal-toggle="staticModal2"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+
+                          <button
+                            data-modal-target="staticModal3"
+                            data-modal-toggle="staticModal3"
+                            type="button"
+                          >
+                            <i
+                              class="fa-regular fa-pen-to-square text-green-500"
+                            ></i>
+                          </button>
+
+                          <button>
+                            <i class="fa-solid fa-trash-can text-red-500"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="border px-4 py-2 font-medium">
+                          Leonardo Desantos
+                        </td>
+                        <td class="border px-4 py-2">
+                          <label
+                            class="relative inline-flex items-center mr-5 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              value=""
+                              class="sr-only peer"
+                              checked
+                            />
+                            <div
+                              class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"
+                            ></div>
+                          </label>
+                          <h6 class="text-sm font-medium">Active</h6>
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          125317621982
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          Tailor Logistic
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          +1 1234 12340
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox1" class="ml-2 text-sm"
+                              >MVR monitoring</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo2"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo2" class="ml-2 text-sm"
+                              >DOT Drug & Alcohol</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo3"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo3" class="ml-2 text-sm"
+                              >Driver File Maintenance</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox4"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox4" class="ml-2 text-sm"
+                              >MVR Monitoring</label
+                            >
+                          </div>
+                        </td>
+                        <td class="border px-4 py-2 font-medium space-x-2">
+                          <button
+                            class="text-[#1262B7]"
+                            data-modal-target="staticModal2"
+                            data-modal-toggle="staticModal2"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+
+                          <button
+                            data-modal-target="staticModal3"
+                            data-modal-toggle="staticModal3"
+                            type="button"
+                          >
+                            <i
+                              class="fa-regular fa-pen-to-square text-green-500"
+                            ></i>
+                          </button>
+
+                          <button>
+                            <i class="fa-solid fa-trash-can text-red-500"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="flex justify-end">
+                  <div class="items-center px-6">
+                    <span class="text-sm pr-4 text-[#081B48;] font-medium">
+                      <span>1-150</span>/<span>200</span>
+                    </span>
+                    <div class="inline-flex mt-2 xs:mt-0">
+                      <button
+                        class="px-2 py-1 bg-[#F4F4F4;] border rounded text-[#081B48;]"
+                      >
+                        <i class="fa-solid fa-chevron-left"></i>
+                      </button>
+                      <button
+                        class="px-2 py-1 bg-[#F4F4F4;] border rounded text-[#081B48;]"
+                      >
+                        <i class="fa-solid fa-chevron-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="hidden"
+                id="contacts"
+                role="tabpanel"
+                aria-labelledby="contacts-tab"
+              >
+                <div class="overflow-x-auto px-6">
+                  <table class="w-full table-auto">
+                    <thead>
+                      <tr class="border text-left">
+                        <th class="px-4 border py-2">Name</th>
+                        <th class="px-4 border py-2">Status</th>
+                        <th class="px-4 border py-2">ID</th>
+                        <th class="px-4 border py-2">Company</th>
+                        <th class="px-4 border py-2">Phone Number</th>
+                        <th class="px-4 border py-2">Enrolled Program</th>
+                        <th class="px-4 border py-2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="border px-4 py-2 font-medium">
+                          Leonardo Desantos
+                        </td>
+                        <td class="border px-4 py-2">
+                          <label
+                            class="relative inline-flex items-center mr-5 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              value=""
+                              class="sr-only peer"
+                              checked
+                            />
+                            <div
+                              class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"
+                            ></div>
+                          </label>
+                          <h6 class="text-sm font-medium">Active</h6>
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          125317621982
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          Tailor Logistic
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          +1 1234 12340
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox1" class="ml-2 text-sm"
+                              >MVR monitoring</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo2"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo2" class="ml-2 text-sm"
+                              >DOT Drug & Alcohol</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo3"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo3" class="ml-2 text-sm"
+                              >Driver File Maintenance</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox4"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox4" class="ml-2 text-sm"
+                              >MVR Monitoring</label
+                            >
+                          </div>
+                        </td>
+                        <td class="border px-4 py-2 font-medium space-x-2">
+                          <button
+                            class="text-[#1262B7]"
+                            data-modal-target="staticModal2"
+                            data-modal-toggle="staticModal2"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+
+                          <button
+                            data-modal-target="staticModal3"
+                            data-modal-toggle="staticModal3"
+                            type="button"
+                          >
+                            <i
+                              class="fa-regular fa-pen-to-square text-green-500"
+                            ></i>
+                          </button>
+
+                          <button>
+                            <i class="fa-solid fa-trash-can text-red-500"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="border px-4 py-2 font-medium">
+                          Leonardo Desantos
+                        </td>
+                        <td class="border px-4 py-2">
+                          <label
+                            class="relative inline-flex items-center mr-5 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              value=""
+                              class="sr-only peer"
+                              checked
+                            />
+                            <div
+                              class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"
+                            ></div>
+                          </label>
+                          <h6 class="text-sm font-medium">inactive</h6>
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          125317621982
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          Tailor Logistic
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          +1 1234 12340
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox1" class="ml-2 text-sm"
+                              >MVR monitoring</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo2"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo2" class="ml-2 text-sm"
+                              >DOT Drug & Alcohol</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo3"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo3" class="ml-2 text-sm"
+                              >Driver File Maintenance</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox4"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox4" class="ml-2 text-sm"
+                              >MVR Monitoring</label
+                            >
+                          </div>
+                        </td>
+                        <td class="border px-4 py-2 font-medium space-x-2">
+                          <button
+                            class="text-[#1262B7]"
+                            data-modal-target="staticModal2"
+                            data-modal-toggle="staticModal2"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+
+                          <button
+                            data-modal-target="staticModal3"
+                            data-modal-toggle="staticModal3"
+                            type="button"
+                          >
+                            <i
+                              class="fa-regular fa-pen-to-square text-green-500"
+                            ></i>
+                          </button>
+
+                          <button>
+                            <i class="fa-solid fa-trash-can text-red-500"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="border px-4 py-2 font-medium">
+                          Leonardo Desantos
+                        </td>
+                        <td class="border px-4 py-2">
+                          <label
+                            class="relative inline-flex items-center mr-5 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              value=""
+                              class="sr-only peer"
+                              checked
+                            />
+                            <div
+                              class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"
+                            ></div>
+                          </label>
+                          <h6 class="text-sm font-medium">Active</h6>
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          125317621982
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          Tailor Logistic
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          +1 1234 12340
+                        </td>
+                        <td class="border px-4 py-2 font-medium">
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox1" class="ml-2 text-sm"
+                              >MVR monitoring</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo2"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo2" class="ml-2 text-sm"
+                              >DOT Drug & Alcohol</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbo3"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbo3" class="ml-2 text-sm"
+                              >Driver File Maintenance</label
+                            >
+                          </div>
+                          <div class="flex items-center">
+                            <input
+                              type="checkbox"
+                              id="checkbox4"
+                              class="form-checkbox text-blue-500 h-3 w-3"
+                            />
+                            <label for="checkbox4" class="ml-2 text-sm"
+                              >MVR Monitoring</label
+                            >
+                          </div>
+                        </td>
+                        <td class="border px-4 py-2 font-medium space-x-2">
+                          <button
+                            class="text-[#1262B7]"
+                            data-modal-target="staticModal2"
+                            data-modal-toggle="staticModal2"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+
+                          <button
+                            data-modal-target="staticModal3"
+                            data-modal-toggle="staticModal3"
+                            type="button"
+                          >
+                            <i
+                              class="fa-regular fa-pen-to-square text-green-500"
+                            ></i>
+                          </button>
+
+                          <button>
+                            <i class="fa-solid fa-trash-can text-red-500"></i>1
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="flex justify-end">
+                  <div class="items-center px-6">
+                    <span class="text-sm pr-4 text-[#081B48;] font-medium">
+                      <span>1-150</span>/<span>200</span>
+                    </span>
+                    <div class="inline-flex mt-2 xs:mt-0">
+                      <button
+                        class="px-2 py-1 bg-[#F4F4F4;] border rounded text-[#081B48;]"
+                      >
+                        <i class="fa-solid fa-chevron-left"></i>
+                      </button>
+                      <button
+                        class="px-2 py-1 bg-[#F4F4F4;] border rounded text-[#081B48;]"
+                      >
+                        <i class="fa-solid fa-chevron-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- table field  -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="{% static 'library-flow.js' %}"></script>
+    <script></script>
+  </body>
+</html>
