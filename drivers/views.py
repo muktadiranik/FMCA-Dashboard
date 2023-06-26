@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework import filters
 from drivers.models import *
 from drivers.serializers import *
 
@@ -15,9 +16,25 @@ class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = CompanyModelSerializer
 
 
-class EmployeeViewSet(viewsets.ModelViewSet):
+class AllEmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeModelSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ['first_name', 'last_name', 'company__name']
+
+
+class ActiveEmployeeViewSet(viewsets.ModelViewSet):
+    queryset = Employee.objects.filter(is_active=True)
+    serializer_class = EmployeeModelSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ['first_name', 'last_name', 'company__name']
+
+
+class InactiveEmployeeViewSet(viewsets.ModelViewSet):
+    queryset = Employee.objects.filter(is_active=False)
+    serializer_class = EmployeeModelSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ['first_name', 'last_name', 'company__name']
 
 
 class EmployeeFileViewSet(viewsets.ModelViewSet):

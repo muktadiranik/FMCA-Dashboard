@@ -5,7 +5,9 @@ app_name = 'drivers'
 
 router = routers.DefaultRouter()
 router.register(r'company', CompanyViewSet)
-router.register(r'employee', EmployeeViewSet)
+router.register(r'all-employee', AllEmployeeViewSet)
+router.register(r'active-employee', ActiveEmployeeViewSet)
+router.register(r'inactive-employee', InactiveEmployeeViewSet)
 router.register(r'employeefile', EmployeeFileViewSet)
 router.register(r'owneremployeenotification', OwnerEmployeeNotificationViewSet)
 router.register(r'medicaltestcenter', MedicalTestCenterViewSet)
